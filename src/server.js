@@ -26,8 +26,9 @@ export const setupServer = () => {
 
     app.get('/contacts', async(req, res) => {
         const contacts = await getAllContacts();
-        contacts.status(200).json({
-            message: 'Successfully found contacts!'
+        res.status(200).json({
+            message: 'Successfully found contacts!',
+            data: contacts,
         });
     });
 
