@@ -43,7 +43,7 @@ export const setupServer = () => {
             return;
         };
 
-        contact.status(200).json({
+        res.status(200).json({
             message: `Successfully found contact with id ${contactId}!`
         });
     });
