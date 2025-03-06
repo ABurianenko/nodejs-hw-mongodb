@@ -13,7 +13,7 @@ router.get('/contacts', ctrlWrapper(getAllContactsController));
 router.get('/contacts/:contactId', ctrlWrapper(getContactByIdController));
 
 router.post('/contacts', ctrlWrapper(createContactContoller));
-router.delete('/contact/:contactId', ctrlWrapper(deleteContactController));
-router.patch('contacts/:contactId', ctrlWrapper(patchContactConroller));
+router.delete('/contacts/:contactId', ctrlWrapper(deleteContactController));
+router.patch('/contacts/:contactId', ctrlWrapper(patchContactConroller));
 
 export default router;
