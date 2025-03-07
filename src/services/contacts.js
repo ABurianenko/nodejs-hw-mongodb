@@ -36,5 +36,5 @@ export const patchContact = async (contactId, payload, options = {}) => {
 
     if (!updatedContact || !updatedContact.value) return null;
 
-    return updatedContact;
+    return updatedContact.value;
 };
