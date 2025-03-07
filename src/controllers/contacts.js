@@ -60,7 +60,8 @@ export const patchContactConroller = async (req, res, next) => {
     const result = await patchContact(contactId, req.body);
 
     if (!result) {
-        throw createHttpError(404, "Contact not found");
+        next(createHttpError(404, 'Student not found'));
+        return;
     };
 
     res.json({

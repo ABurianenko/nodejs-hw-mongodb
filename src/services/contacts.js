@@ -36,8 +36,5 @@ export const patchContact = async (contactId, payload, options = {}) => {
 
     if (!updatedContact || !updatedContact.value) return null;
 
-    return {
-        contact: updatedContact.value,
-        isNew: Boolean(updatedContact?.lastErrorObject?.upserted),
-    };
+    return updatedContact;
 };
