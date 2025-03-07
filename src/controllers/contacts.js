@@ -59,7 +59,7 @@ export const patchContactConroller = async (req, res, next) => {
 
     const contact = await patchContact(contactId, req.body);
 
-    if (!contact) {
+    if (!contact.value) {
         next(createHttpError(404, 'Contact not found'));
         return;
     };
@@ -67,6 +67,6 @@ export const patchContactConroller = async (req, res, next) => {
     res.json({
         status: 200,
         message: "Successfully patched a contact!",
-        data: contact,
+        data: contact.value,
     });
 };
