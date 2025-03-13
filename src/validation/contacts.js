@@ -20,7 +20,7 @@ export const updateContactsSchema = Joi.object({
         'string.max': 'Username should have at most {#limit} characters',
         'any.required': 'Username is required',
     }),
-    phoneNumber: Joi.string().pattern(/^\+380\d{9}$/),
+    phoneNumber: Joi.string().min(3).max(20),
     email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
     isFavourite: Joi.boolean(),
     contactType: Joi.string().valid('work', 'home', 'personal'),
