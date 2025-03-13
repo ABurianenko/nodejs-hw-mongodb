@@ -1,9 +1,14 @@
+import createHttpError from "http-errors";
+
 const parseType = (contactType) => {
     const isString = typeof contactType === 'string';
     if (!isString) return;
     const isType = (contactType) => ['work', 'home', 'personal'].includes(contactType);
 
-    if (isType(contactType)) return contactType;
+    if (!isType(contactType)) {
+        throw createHttpError(404, "Contact not found");
+    }
+    return contactType;
 };
 
 const parseFavourite = (isFavourite) => {
