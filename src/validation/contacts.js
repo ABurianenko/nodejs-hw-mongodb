@@ -1,7 +1,7 @@
 import Joi from "joi";
 
 export const createContactsSchema = Joi.object({
-    name: Joi.string().alphanum().min(3).max(20).required().messages({
+    name: Joi.string().min(3).max(20).required().messages({
         'string.base': 'Username should be a string', 
         'string.min': 'Username should have at least {#limit} characters',
         'string.max': 'Username should have at most {#limit} characters',
