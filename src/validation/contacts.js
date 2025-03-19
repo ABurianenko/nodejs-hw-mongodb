@@ -11,7 +11,7 @@ export const createContactsSchema = Joi.object({
     phoneNumber: Joi.string().min(3).max(20).required(),
     email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
     isFavourite: Joi.boolean(),
-    contactType: Joi.string().valid('work', 'home', 'personal').required(),
+    contactType: Joi.string().valid('work', 'home', 'personal'),
     userId: Joi.string().custom((value, helper) => {
         if (value && !isValidObjectId(value)) {
             return helper.message('User id should be a valid mongo id');
