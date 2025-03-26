@@ -23,3 +23,12 @@ export const loginUserSchema = Joi.object({
     email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
     password: Joi.string().pattern(new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*])[a-zA-Z\\d!@#$%^&*]{3,10}$')).required(),
 });
+
+export const requestResetEmailSchema = Joi.object({
+    email: Joi.string().email().required(),
+});
+
+export const resetPasswordSchema = Joi.object({
+    password: Joi.string().required(),
+    token: Joi.string().required(),
+});
