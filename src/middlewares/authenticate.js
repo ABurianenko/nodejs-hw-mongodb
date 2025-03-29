@@ -30,7 +30,6 @@ export const authenticate = async (req, res, next) => {
     }
 
     const user = await UserCollection.findById(session.userId);
-    console.log('User:', user);
 
     if (!user) {
         return next(createHttpError(401));
