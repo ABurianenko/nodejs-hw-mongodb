@@ -1,0 +1,32 @@
+type: object
+required:
+  - userId
+  - accessToken
+  - refreshToken
+  - accessTokenValidUntil
+  - refreshTokenValidUntil
+properties:
+  userId:
+    description: 'User ID'
+    type: string
+    example: '67ec5e00f831303fc03415df'
+  accessToken:
+    description: 'Token for login operation'
+    type: string
+    example: 'UsDR8UZufHvlEJE8O3fJ1U8z5h9fLHPlvxSFZSJI'
+  refreshToken:
+    description: 'Refreshes access token when it expired'
+    type: string
+    example: 'D870%2FjnhLx9KjH%2FPL5ha41xnkSf7%2FnChRZiZuqJV'
+  accessTokenValidUntil:
+    description: 'Date until wich the access token is valid'
+    type: string
+    example: 'Tue, 01 Apr 2025 22:06:12 GMT'
+  refreshTokenValidUntil:
+    description: 'Date until wich the refresh token is valid'
+    type: string
+    example: 'Wed, 16 Apr 2025 21:51:12 GMT'
+  sessionId:
+    description: 'User session Id'
+    type: string
+    example: 'j%3A%2267ec5fd0f831303fc03415e3%22'

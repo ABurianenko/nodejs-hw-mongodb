@@ -17,14 +17,31 @@ requestBody:
           name:
             description: "Contact's name"
             type: string
-            example: 'Kate Hudson'
+            example: 'Taras Shevchenko'
           phoneNumber:
             description: "Contact's phone number"
             type: string
-            example: '+380636485645'
+            example: '+380681456789'
+          email:
+            description: "Contact's email"
+            type: string
+            example: 'sheva1814@gmail.com'
+          isFavourite:
+            description: 'Is this contact favourite or not?'
+            type: boolean
+            example: true
+          contactType:
+            description: 'What type of contact is this. Can only take 3 options'
+            type: string
+            enum: ['work', 'home', 'personal']
+            example: personal
+          photo:
+            description: "Link to contact's photo"
+            type: string
+            example: https://res.cloudinary.com/uqwgdu/image/upload/image.png
 responses:
   '201':
-    description: Creates a student
+    description: Creates a contact
     content:
       application/json:
         schema:
@@ -42,6 +59,6 @@ responses:
               example: Successfully created a contact!
             data:
               type: object
-              $ref: '../../components/schemas/student.yaml'
+              $ref: ../../components/schemas/contact.yaml
   '401':
     $ref: '../../components/responses/401.yaml'

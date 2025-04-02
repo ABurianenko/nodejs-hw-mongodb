@@ -12,21 +12,56 @@ tags:
   - name: Auth
     description: Auth operations
 servers:
-  - url: http://localhost:3000
   - url: https://nodejs-hw-mongodb-3nyw.onrender.com
 paths:
   /contacts:
-    get: $ref: ../swagger/paths/contacts/get.yaml
-    post: 
+    get:
+      $ref: ../swagger/paths/contacts/get.yaml
+    post:
       $ref: ../swagger/paths/contacts/post.yaml
-  /contacts/{id}:
-    get: $ref: ../swagger/paths/contacts/{id}/get.yaml
-    delete: 
+  /contacts/{contactId}:
+    get:
+      $ref: ../swagger/paths/contacts/{id}/get.yaml
+    delete:
       $ref: ../swagger/paths/contacts/{id}/delete.yaml
-    patch: 
+    patch:
       $ref: ../swagger/paths/contacts/{id}/patch.yaml
+  /auth/register:
+    post:
+      $ref: ../swagger/paths/auth/register/post.yaml
+  /auth/login:
+    post:
+      $ref: ../swagger/paths/auth/login/post.yaml
+  /auth/logout:
+    post:
+      $ref: ../swagger/paths/auth/logout/post.yaml
+  /auth/refresh:
+    post:
+      $ref: ../swagger/paths/auth/refresh/post.yaml
+  /auth/send-reset-email:
+    post:
+      $ref: ../swagger/paths/auth/send-reset-email/post.yaml
+  /auth/reset-pwd:
+    post:
+      $ref: ../swagger/paths/auth/reset-pwd/post.yaml
+  /auth/get-oauth-url:
+    get:
+      $ref: ../swagger/paths/auth/get-oauth-url/get.yaml
+  /auth/confirm-google-auth:
+    post:
+      $ref: ../swagger/paths/auth/confirm-google-auth/post.yaml
 components:
   securitySchemes:
     bearerAuth:
       type: http
       scheme: bearer
+    googleOAuth:
+      type: oauth2
+      description: "OAuth2 authentication using Google's authorization server"
+      flows:
+        authorizationCode:
+          authorizationUrl: 'https://accounts.google.com/o/oauth2/auth'
+          tokenUrl: 'https://oauth2.googleapis.com/token'
+          scopes:
+            email: "Access to user's email"
+            profile: "Access to user's profile"
