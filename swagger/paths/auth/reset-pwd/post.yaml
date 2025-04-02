@@ -1,0 +1,54 @@
+tags:
+  - Auth
+summary: Reset user password
+operationId: resetPassword
+description: 'Reset user password'
+security:
+  - googleOAuth: []
+requestBody:
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - email
+          - password
+          - resetToken
+        properties:
+          email:
+            description: "User's email"
+            type: string
+            example: 'franyk@example.com'
+          password:
+            description: "New password for user's account"
+            type: string
+            example: 'loveOlhaRozhkevych4ever'
+          resetToken:
+            description: 'Token received in the password reset email'
+            type: string
+            example: 'abc123resetToken'
+responses:
+  '200':
+    description: Creates a new user
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: Password has been successfully reset.
+            data:
+              type: object
+              $ref: ../../../components/schemas/session.yaml
+  '400':
+    $ref: ../../../components/responses/400.yaml
+  '404':
+    $ref: '../../../components/responses/404.yaml'
