@@ -170,9 +170,6 @@
           },
           "401": {
             "$ref": "#/components/responses/401"
-          },
-          "404": {
-            "$ref": "#/components/responses/404"
           }
         }
       },
@@ -195,7 +192,8 @@
                 "type": "object",
                 "required": [
                   "name",
-                  "phoneNumber"
+                  "phoneNumber",
+                  "contactType"
                 ],
                 "properties": {
                   "name": {
@@ -231,6 +229,7 @@
                   "photo": {
                     "description": "Link to contact's photo",
                     "type": "string",
+                    "format": "binary",
                     "example": "https://res.cloudinary.com/uqwgdu/image/upload/image.png"
                   }
                 }
@@ -328,6 +327,9 @@
               }
             }
           },
+          "401": {
+            "$ref": "#/components/responses/401"
+          },
           "404": {
             "$ref": "#/components/responses/404"
           }
@@ -359,6 +361,9 @@
         "responses": {
           "204": {
             "description": "Delete contact by id"
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
           },
           "404": {
             "$ref": "#/components/responses/404"
@@ -426,6 +431,7 @@
                   "photo": {
                     "description": "Contact's avatar",
                     "type": "string",
+                    "format": "binary",
                     "example": "https://res.cloudinary.com/daukczscv/image/upload/v1743286483/on0ak71aqeiapz3lmji8.png"
                   }
                 }
@@ -462,6 +468,9 @@
                 }
               }
             }
+          },
+          "401": {
+            "$ref": "#/components/responses/401"
           },
           "404": {
             "$ref": "#/components/responses/404"
@@ -635,6 +644,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
           },
           "401": {
             "$ref": "#/components/responses/401"
@@ -1042,6 +1054,7 @@
           "_id",
           "name",
           "phoneNumber",
+          "contactType",
           "userId"
         ],
         "properties": {
@@ -1156,11 +1169,6 @@
             "description": "Date until wich the refresh token is valid",
             "type": "string",
             "example": "Wed, 16 Apr 2025 21:51:12 GMT"
-          },
-          "sessionId": {
-            "description": "User session Id",
-            "type": "string",
-            "example": "j%3A%2267ec5fd0f831303fc03415e3%22"
           }
         }
       }

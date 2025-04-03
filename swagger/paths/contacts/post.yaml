@@ -13,6 +13,7 @@ requestBody:
         required:
           - name
           - phoneNumber
+          - contactType
         properties:
           name:
             description: "Contact's name"
@@ -38,6 +39,7 @@ requestBody:
           photo:
             description: "Link to contact's photo"
             type: string
+            format: binary
             example: https://res.cloudinary.com/uqwgdu/image/upload/image.png
 responses:
   '201':
