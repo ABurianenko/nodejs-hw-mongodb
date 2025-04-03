@@ -41,6 +41,7 @@ requestBody:
           photo:
             description: "Contact's avatar"
             type: string
+            format: binary
             example: 'https://res.cloudinary.com/daukczscv/image/upload/v1743286483/on0ak71aqeiapz3lmji8.png'
 responses:
   '200':
@@ -63,5 +64,7 @@ responses:
             data:
               type: object
               $ref: ../../../components/schemas/contact.yaml
+  '401':
+    $ref: ../../../components/responses/401.yaml
   '404':
     $ref: '../../../components/responses/404.yaml'
