@@ -267,6 +267,9 @@
               }
             }
           },
+          "400": {
+            "$ref": "#/components/responses/400"
+          },
           "401": {
             "$ref": "#/components/responses/401"
           }
@@ -468,6 +471,9 @@
                 }
               }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/400"
           },
           "401": {
             "$ref": "#/components/responses/401"
@@ -1170,6 +1176,11 @@
             "description": "Date until wich the refresh token is valid",
             "type": "string",
             "example": "Wed, 16 Apr 2025 21:51:12 GMT"
+          },
+          "_id": {
+            "description": "User session Id",
+            "type": "string",
+            "example": "j%3A%2267ec5fd0f831303fc03415e3%22"
           }
         }
       }
