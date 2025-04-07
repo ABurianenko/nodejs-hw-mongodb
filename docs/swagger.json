@@ -1149,7 +1149,8 @@
           "accessToken",
           "refreshToken",
           "accessTokenValidUntil",
-          "refreshTokenValidUntil"
+          "refreshTokenValidUntil",
+          "_id"
         ],
         "properties": {
           "userId": {
