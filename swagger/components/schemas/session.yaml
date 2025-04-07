@@ -5,6 +5,7 @@ required:
   - refreshToken
   - accessTokenValidUntil
   - refreshTokenValidUntil
+  - _id
 properties:
   userId:
     description: 'User ID'
